@@ -4,14 +4,14 @@ import Info from './Info';
 const Home = () => {
 
     const [empData, SetEmpData] = useState([]);
-    console.log(empData);
+    // console.log(empData);
     // const [{ NAME }[] = empData;
     // console.log(NAME);
 
     const information = (event) => {
         event.preventDefault();
         const emp_id = (event.target.emp_id.value);
-        console.log(emp_id);
+        // console.log(emp_id);
 
         fetch(`http://202.164.213.67/mat/short_leave.php?EMP_CODE=${emp_id}`)
             .then(Response => Response.json())
@@ -23,10 +23,10 @@ const Home = () => {
     return (
         <div>
             <h2 className='font-bold lg:text-2xl mt-5 text-secondary drop-shadow'>APPLICATION FOR <span className='text-primary lg:text-3xl'>SHORT LEAVE</span>  </h2>
-            <div class="grid lg:grid-cols-2 gap-2 lg:px-20 mt-5 mb-5 place-content-center">
+            <div class="grid lg:grid-cols-2 gap-2 lg:px-20  mt-5 mb-5 place-content-center">
 
                 <div class="">
-                    <img src={img} class="w-96 md:w-1/4 lg:w-full lg:ml-10 h-full rounded shadow-lg" />
+                    <img src={img} class="w-96 h-full md:w-1/4 md:h-full lg:w-full lg:ml-10  lg:h-full rounded shadow-lg" />
                 </div>
 
                 <div className='justify-center  mt-0'>
@@ -43,12 +43,12 @@ const Home = () => {
                         </form>
                     </div>
 
-
                     {
                         empData.length === 0 ? <p className='text-center'></p> :
                             empData.map(d => <Info key={d.id} d={d}></Info>)
 
                     }
+
                     {/* <form >
                             <div className='mt-3 flex'>
                                 <input type="text" value='' name='emp_name' class="input bg-primary text-white font-bold h-10 input-bordered rounded input-primary w-full max-w-lg" required />
