@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import img from '../../assets/emp.png'
+import imgg from '../../assets/agent_login.gif'
 import Info from './Info';
 const Home = () => {
 
@@ -26,7 +27,7 @@ const Home = () => {
             <div class="grid lg:grid-cols-2 gap-2 lg:px-20  mt-5 mb-5 place-content-center">
 
                 <div class="">
-                    <img src={img} class="w-96 h-full md:w-1/4 md:h-full lg:w-full lg:ml-10  lg:h-full rounded shadow-lg" />
+                    <img src={imgg} class="w-96 h-full md:w-1/4 md:h-full lg:w-full lg:ml-10  lg:h-full rounded shadow-lg" />
                 </div>
 
                 <div className='justify-center  mt-0'>

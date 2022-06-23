@@ -9,6 +9,7 @@ const Info = ({ d }) => {
 
 
 
+    //******Handle post data in database********
     const handleAdded = event => {
         event.preventDefault();
         const EMP_ID = (event.target.EMP_ID.value);
@@ -20,12 +21,13 @@ const Info = ({ d }) => {
         const FROM_TIME = (event.target.FROM_TIME.value);
         const END_TIME = (event.target.END_TIME.value);
         const LEAVE_REASON = (event.target.LEAVE_REASON.value);
+        const STATUS = 'N';
 
         // console.log(EMP_NAME, emp_id, emp_designation, emp_dept, l_date, l_from_time, l_to_time, reason);
-        console.log(NAME, DEPT_CODE, DEPT_NAME, DESIG, LEAVE_REASON, EMP_ID);
+        console.log(NAME, DEPT_CODE, DEPT_NAME, DESIG, LEAVE_REASON, EMP_ID, STATUS, FROM_TIME, END_TIME, DATE_);
 
         const addItem = {
-            NAME, DEPT_CODE, DEPT_NAME, DESIG, LEAVE_REASON, EMP_ID
+            NAME, DEPT_CODE, DEPT_NAME, DESIG, LEAVE_REASON, EMP_ID, STATUS, FROM_TIME, END_TIME
         };
         const url = `http://202.164.213.67/mat/short_leave_insert.php`;
         fetch(url, {
@@ -41,7 +43,7 @@ const Info = ({ d }) => {
                 event.target.reset()
             })
     }
-
+    //******Handle post data in database********
 
     return (
         <div>
@@ -86,14 +88,14 @@ const Info = ({ d }) => {
                     </div>
                 </form>
 
-                {/* <div style={{ height: "auto", margin: "0 auto", maxWidth: 64, width: "100%" }}>
+                <div style={{ height: "auto", margin: "0 auto", maxWidth: 64, width: "100%" }}>
                     <QRCode
                         size={256}
                         style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                        value={`"${E_NAME},${EMP_CODE},${EMP_DESIG},${EMP_DEPT}"`}
+                        value={`"${NAME},${EMP_CODE},${EMP_DESIG},${EMP_DEPT}"`}
                         viewBox={`0 0 256 256`}
                     />
-                </div> */}
+                </div>
             </div>
 
 

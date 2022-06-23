@@ -17,15 +17,14 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-
                 <img className='w-14  shadow-lg bg-white rounded-full p-1 hidden lg:block' src={logo} />
                 <a class="btn btn-ghost normal-case text-xl text-white font-bold">FAREAST ISLAMI LIFE</a>
-
             </div>
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal tex-white p-0">
                     <li className='rounded font-bold text-white'><NavLink className='text-white p-2 px-8 rounded bordered' to='/'><AiOutlineHome />HOME</NavLink></li>
                     <li className=' pl-1 rounded  text-white  '><NavLink className='text-white' to='/dept_head'>APPROVE</NavLink></li>
+                    <li className=' pl-1 rounded  text-white  '><NavLink className='text-white' to='/final_approve'>ADMIN</NavLink></li>
                     <li className=' pl-1 rounded  text-white  '><a className='text-white' to='/about'>CONTACT US</a ></li>
 
                 </ul>

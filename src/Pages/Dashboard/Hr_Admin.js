@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import Loading from '../Shared/Loading';
-import Approve_incharge from './Approve_incharge';
 
-const Dept_incharge = () => {
+import Showall_hr from './Showall_hr';
+
+const Hr_Admin = () => {
+
+
 
     const [type, setOption] = useState('');
     const [l_data, setLdata] = useState([]);
@@ -22,7 +26,7 @@ const Dept_incharge = () => {
 
         console.log(dept_id, date);
 
-        fetch(`http://202.164.213.67/mat/approve_short_leave.php?DEPT_CODE=${type}`)
+        fetch(`http://202.164.213.67/mat/show_all_data_hr.php?DEPT_CODE=${type}`)
             .then(response => response.json())
             .then(data => setLdata(data))
 
@@ -30,12 +34,15 @@ const Dept_incharge = () => {
     }
 
 
+
+
+
     return (
 
         <div>
             <div className='flex justify-center mt-4 '>
                 <div className='p-5 sm:h-full shadow-2xl lg:w-3/1 lg:h-full  bordered lg:ml-12 lg:p-8 '>
-                    <h3 className='font-bold text-md text-primary drop-shadow mb-2'>APPROVE EMPLOYEE SHORT LEAVE REQUEST</h3>
+                    <h3 className='font-bold text-md text-secondary drop-shadow mb-2'>APPROVE EMPLOYEE SHORT LEAVE REQUEST FROM DEPARTMENT</h3>
 
                     <form onSubmit={handleAdded}>
                         <div className='mt-0  flex'>
@@ -54,12 +61,12 @@ const Dept_incharge = () => {
                             </select>
                         </div>
                         <div className='mt-2  flex'>
-                            <input type="date" name='date' placeholder='Select Date' class="input bg-primary text-white  font-bold h-10 input-bordered rounded input-primary w-full max-w-lg" required />
+                            <input type="date" name='date' placeholder='Select Date' class="input bg-secondary text-white  font-bold h-10 input-bordered rounded input-primary w-full max-w-lg" required />
                         </div>
 
                         <div className='flex justify-center mt-1'>
                             <input type="reset" value='CANCEL' className='btn btn-error text-white btn-sm mt-5 px-12 rounded font-bold' />
-                            <button className='btn btn-primary text-white btn-sm mt-5 px-20 rounded font-bold ml-1'>Submit</button>
+                            <button className='btn btn-secondary text-white btn-sm mt-5 px-20 rounded font-bold ml-1'>Submit</button>
                         </div>
                     </form>
                 </div>
@@ -72,7 +79,7 @@ const Dept_incharge = () => {
             <div class="overflow-x-auto flex justify-center mt-5 ml-5 mr-5">
                 <table class="border-collapse border border-slate-400">
                     <thead>
-                        <tr className='bg-primary text-white font-bold'>
+                        <tr className='bg-secondary text-white font-bold'>
                             <th class="border border-slate-300 w-48 p-2">NAME</th>
                             <th class="border border-slate-300 w-48 ">EMP ID</th>
                             <th class="border border-slate-300 w-60">DEPARTMENT</th>
@@ -88,15 +95,18 @@ const Dept_incharge = () => {
                 </table>
             </div>
 
+
             {
                 l_data.length === 0 ? <p className='text-center'><Loading /></p> :
-                    l_data.map(leave => <Approve_incharge key={leave.id} leave={leave}></Approve_incharge>)
+                    l_data.map(leave => <Showall_hr key={leave.id} leave={leave}></Showall_hr>)
 
             }
 
-        </div>
 
+
+
+        </div>
     );
 };
 
-export default Dept_incharge;
+export default Hr_Admin;
