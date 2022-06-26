@@ -17,7 +17,7 @@ const Info = ({ d }) => {
         const DEPT_CODE = (event.target.DEPT_ID.value);
         const DEPT_NAME = (event.target.DEPT_NAME.value);
         const DESIG = (event.target.DESIG.value);
-        const DATE_ = (event.target.DATE.value);
+        const DATE_ = (event.target.DATE_.value);
         const FROM_TIME = (event.target.FROM_TIME.value);
         const END_TIME = (event.target.END_TIME.value);
         const LEAVE_REASON = (event.target.LEAVE_REASON.value);
@@ -27,7 +27,7 @@ const Info = ({ d }) => {
         console.log(NAME, DEPT_CODE, DEPT_NAME, DESIG, LEAVE_REASON, EMP_ID, STATUS, FROM_TIME, END_TIME, DATE_);
 
         const addItem = {
-            NAME, DEPT_CODE, DEPT_NAME, DESIG, LEAVE_REASON, EMP_ID, STATUS, FROM_TIME, END_TIME
+            NAME, DEPT_CODE, DEPT_NAME, DESIG, LEAVE_REASON, EMP_ID, STATUS, FROM_TIME, END_TIME, DATE_
         };
         const url = `http://202.164.213.67/mat/short_leave_insert.php`;
         fetch(url, {
@@ -64,7 +64,7 @@ const Info = ({ d }) => {
                     </div>
 
                     <div className='mt-2 flex'>
-                        <input type="date" placeholder='Date' name='DATE' class="input bg-primary   text-white font-bold h-10 input-bordered rounded input-primary w-full max-w-lg" required />
+                        <input type="date" placeholder='Date' name='DATE_' class="input bg-primary   text-white font-bold h-10 input-bordered rounded input-primary w-full max-w-lg" required />
                         <input type="text" value={DEPT_CODE} placeholder='Department ID' name='DEPT_ID' class="input bg-primary w-56 ml-1  text-white font-bold h-10 input-bordered rounded input-primary w-full max-w-lg" required />
 
                     </div>

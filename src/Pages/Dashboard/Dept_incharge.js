@@ -22,9 +22,10 @@ const Dept_incharge = () => {
 
         console.log(dept_id, date);
 
-        fetch(`http://202.164.213.67/mat/approve_short_leave.php?DEPT_CODE=${type}`)
+        fetch(`http://202.164.213.67/mat/approve_short_leave.php?DEPT_CODE=${type}&& DATE_=${date}`)
             .then(response => response.json())
             .then(data => setLdata(data))
+
 
 
     }
@@ -68,25 +69,32 @@ const Dept_incharge = () => {
 
 
 
+            {
+                l_data.length === 0 ? <p className='text-center'></p> :
 
-            <div class="overflow-x-auto flex justify-center mt-5 ml-5 mr-5">
-                <table class="border-collapse border border-slate-400">
-                    <thead>
-                        <tr className='bg-primary text-white font-bold'>
-                            <th class="border border-slate-300 w-48 p-2">NAME</th>
-                            <th class="border border-slate-300 w-48 ">EMP ID</th>
-                            <th class="border border-slate-300 w-60">DEPARTMENT</th>
-                            <th class="border border-slate-300 w-48">DESIGNATION</th>
-                            <th class="border border-slate-300 w-24 ">DATE</th>
-                            <th class="border border-slate-300 w-24 ">FROM</th>
-                            <th class="border border-slate-300 w-24">TO</th>
-                            <th class="border border-slate-300 w-36">REASON</th>
-                            <th class="border border-slate-300 w-48 ">APPROVE</th>
-                        </tr>
-                    </thead>
+                    <div class="overflow-x-auto flex justify-center mt-5 ml-5 mr-5">
+                        <table class="border-collapse border border-slate-400">
+                            <thead>
+                                <tr className='bg-primary text-white font-bold'>
+                                    <th class="border border-slate-300 w-48 p-2">NAME</th>
+                                    <th class="border border-slate-300 w-48 ">EMP ID</th>
+                                    <th class="border border-slate-300 w-60">DEPARTMENT</th>
+                                    <th class="border border-slate-300 w-48">DESIGNATION</th>
+                                    <th class="border border-slate-300 w-24 ">DATE</th>
+                                    <th class="border border-slate-300 w-24 ">FROM</th>
+                                    <th class="border border-slate-300 w-24">TO</th>
+                                    <th class="border border-slate-300 w-36">REASON</th>
+                                    <th class="border border-slate-300 w-48 ">APPROVE</th>
+                                </tr>
+                            </thead>
 
-                </table>
-            </div>
+                        </table>
+                    </div>
+
+            }
+
+
+
 
             {
                 l_data.length === 0 ? <p className='text-center'><Loading /></p> :

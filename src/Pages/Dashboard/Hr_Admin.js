@@ -26,7 +26,7 @@ const Hr_Admin = () => {
 
         console.log(dept_id, date);
 
-        fetch(`http://202.164.213.67/mat/show_all_data_hr.php?DEPT_CODE=${type}`)
+        fetch(`http://202.164.213.67/mat/show_all_data_hr.php?DEPT_CODE=${type}&& DATE_=${date}`)
             .then(response => response.json())
             .then(data => setLdata(data))
 
