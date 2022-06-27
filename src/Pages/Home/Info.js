@@ -1,11 +1,31 @@
 import React, { useState } from 'react';
 import QRCode from 'react-qr-code';
-
+import { Navigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Info = ({ d }) => {
 
     const { NAME, EMP_CODE, EMP_DESIG, EMP_DEPT, DEPT_CODE } = d;
     // const [] = useState();
     const test = { NAME, EMP_CODE, EMP_DESIG, EMP_DEPT, DEPT_CODE };
+
+    //New Date===========================
+    const dd = new Date("03/25/2015");
+    console.log(dd);
+
+    var today = new Date();
+    var ddd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = ddd + '-' + mm + '-' + yyyy;
+    // console.log(today);
+    //New Date===========================
+
+
+
+    // const notify = () => toast("Successfully Saved Your Application");
+
 
 
 
@@ -23,6 +43,9 @@ const Info = ({ d }) => {
         const LEAVE_REASON = (event.target.LEAVE_REASON.value);
         const STATUS = 'N';
 
+
+        // toast("Successfully Saved Your Application");
+
         // console.log(EMP_NAME, emp_id, emp_designation, emp_dept, l_date, l_from_time, l_to_time, reason);
         console.log(NAME, DEPT_CODE, DEPT_NAME, DESIG, LEAVE_REASON, EMP_ID, STATUS, FROM_TIME, END_TIME, DATE_);
 
@@ -39,8 +62,19 @@ const Info = ({ d }) => {
         })
             .then(res => res.json())
             .then(result => {
+
+                if (result.status = true) {
+
+                    toast(`${NAME} Successfully Saved Your Application`);
+                }
+                else {
+                    toast.error(`${NAME} Don,t Saved Your Application`)
+                }
+
                 console.log(result);
                 event.target.reset()
+
+                Navigate('/');
             })
     }
     //******Handle post data in database********
@@ -64,7 +98,7 @@ const Info = ({ d }) => {
                     </div>
 
                     <div className='mt-2 flex'>
-                        <input type="date" placeholder='Date' name='DATE_' class="input bg-primary   text-white font-bold h-10 input-bordered rounded input-primary w-full max-w-lg" required />
+                        <input type="text" value={today} placeholder='Date' name='DATE_' class="input bg-primary   text-white font-bold h-10 input-bordered rounded input-primary w-full max-w-lg" required />
                         <input type="text" value={DEPT_CODE} placeholder='Department ID' name='DEPT_ID' class="input bg-primary w-56 ml-1  text-white font-bold h-10 input-bordered rounded input-primary w-full max-w-lg" required />
 
                     </div>
@@ -88,14 +122,17 @@ const Info = ({ d }) => {
                     </div>
                 </form>
 
-                <div style={{ height: "auto", margin: "0 auto", maxWidth: 64, width: "100%" }}>
+                {/* <button onClick={notify}>Notify !</button> */}
+                <ToastContainer />
+
+                {/* <div style={{ height: "auto", margin: "0 auto", maxWidth: 64, width: "100%" }}>
                     <QRCode
                         size={256}
                         style={{ height: "auto", maxWidth: "100%", width: "100%" }}
                         value={`"${NAME},${EMP_CODE},${EMP_DESIG},${EMP_DEPT}"`}
                         viewBox={`0 0 256 256`}
                     />
-                </div>
+                </div> */}
             </div>
 
 

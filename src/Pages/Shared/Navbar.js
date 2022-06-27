@@ -13,6 +13,7 @@ const Navbar = () => {
                     <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li className=' rounded font-bold'><NavLink to='/'><AiOutlineHome />HOME</NavLink></li>
                         <li><NavLink to='/dept_head'>APPROVE</NavLink ></li>
+                        <li><NavLink to='/final_approve'>ADMIN</NavLink ></li>
                         <li><a to='/contact_us'>CONTACT US</a></li>
 
                     </ul>
