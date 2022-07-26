@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Loading from '../Shared/Loading';
 import Approve_incharge from './Approve_incharge';
+import img from '../../assets/emp.jpg'
+
 
 const Dept_incharge = () => {
 
@@ -36,8 +38,12 @@ const Dept_incharge = () => {
     return (
 
         <div>
+
+
             <div className='flex justify-center mt-4 '>
+
                 <div className='p-5 sm:h-full shadow-2xl lg:w-3/1 lg:h-full  bordered lg:ml-12 lg:p-8 '>
+
                     <h3 className='font-bold text-md text-primary drop-shadow mb-2'>APPROVE EMPLOYEE<span className='text-secondary text-lg font-bold'> SHORT LEAVE </span> REQUEST</h3>
 
                     <form onSubmit={handleAdded}>

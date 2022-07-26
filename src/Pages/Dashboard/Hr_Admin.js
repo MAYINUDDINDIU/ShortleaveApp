@@ -33,16 +33,11 @@ const Hr_Admin = () => {
 
     }
 
-
-
-
-
     return (
-
         <div>
             <div className='flex justify-center mt-4 '>
                 <div className='p-5 sm:h-full shadow-2xl lg:w-3/1 lg:h-full  bordered lg:ml-12 lg:p-8 '>
-                    <h3 className='font-bold text-md text-secondary drop-shadow mb-2'>APPROVE EMPLOYEE SHORT LEAVE REQUEST FROM DEPARTMENT</h3>
+                    <h3 className='font-bold text-md text-secondary drop-shadow mb-2'>APPROVE EMPLOYEE SHORT LEAVE REQUEST FROM <span className='text-success font-bold'> HR DEPARTMENT</span></h3>
 
                     <form onSubmit={handleAdded}>
                         <div className='mt-0  flex'>
