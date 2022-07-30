@@ -48,7 +48,7 @@ const Dept_incharge = () => {
 
                     <form onSubmit={handleAdded}>
                         <div className='mt-0  flex'>
-                            <input type="number" name='dept_id' placeholder='Secret Key' class="input  font-bold h-10 input-bordered rounded input-primary w-full max-w-lg" required />
+                            <input type="password" name='dept_id' placeholder='Secret Key' class="input  font-bold h-10 input-bordered rounded input-primary w-full max-w-lg" required />
                         </div>
 
                         <div className='mt-3 flex'>

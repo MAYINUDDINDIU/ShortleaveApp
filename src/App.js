@@ -18,8 +18,8 @@ function App() {
     <div className="App">
       <Navbar></Navbar>
       <Routes>
-        <Route path='/shortleaveform' element={<PrivateRoute><Home /></PrivateRoute>}>Home</Route>
-        <Route path='/info' element={<Info />}>info</Route>
+        <Route path='/shortleaveform:id' element={<PrivateRoute><Home /></PrivateRoute>}>Home</Route>
+        <Route path='/info' element={<PrivateRoute><Info /></PrivateRoute>}>info</Route>
         <Route path='/' element={<Log />}>Login</Route>
         <Route path='/signup' element={<Signup />}>Signup</Route>
         <Route path='/Report' element={<L_report />}>L_report</Route>

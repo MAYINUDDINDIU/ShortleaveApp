@@ -26,7 +26,7 @@ const Navbar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li className=' rounded font-bold'><NavLink to='/shorleaveform'><AiOutlineHome />HOME</NavLink></li>
+                        <li className=' rounded font-bold'><NavLink to='/shortleaveform'><AiOutlineHome />HOME</NavLink></li>
                         <li><NavLink to='/dept_head'>APPROVE</NavLink ></li>
                         <li><NavLink to='/final_approve'>ADMIN</NavLink ></li>
                         <li className=' pl-1 rounded '><NavLink className='' to='/requisition'>REQUISITION</NavLink></li>
@@ -43,7 +43,7 @@ const Navbar = () => {
 
                         user ?
                             <>
-                                <li className='rounded font-bold text-white'><NavLink className='text-white p-2 px-6 rounded bordered' to='/shortleaveform'><AiOutlineHome />HOME</NavLink></li>
+                                <li className='rounded font-bold text-white'><NavLink className='text-white p-2 px-6 rounded bordered' to='/shortleaveform:id'><AiOutlineHome />HOME</NavLink></li>
                                 <li className=' pl-1 rounded  text-white  '><NavLink className='text-white' to='/dept_head'>DEPARTMENT APPROVE</NavLink></li>
                                 <li className=' pl-1 rounded  text-white  '><NavLink className='text-white' to='/final_approve'>ADMIN</NavLink></li>
                                 <li className=' pl-1 rounded  text-white  '><NavLink className='text-white' to='/requisition'>REQUISITION</NavLink></li>
@@ -55,9 +55,13 @@ const Navbar = () => {
                             </NavLink>
 
 
+                    }
 
-
-
+                    {
+                        !user ?
+                            <>  <li className='text-white mt-3 mr-4'>If you are not registered?  </li>
+                                < li className=' pl-1 rounded  text-white bg-primary  '><NavLink className='text-white' to='/signup'>REGISTER NOW</NavLink></li> </> :
+                            < li className=' pl-1 rounded  text-white  '><NavLink className='text-white' to='/signup'></NavLink></li>
 
                     }
 
@@ -67,7 +71,7 @@ const Navbar = () => {
                 </ul>
             </div>
 
-        </div>
+        </div >
     );
 };
 

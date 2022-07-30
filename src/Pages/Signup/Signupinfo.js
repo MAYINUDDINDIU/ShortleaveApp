@@ -98,7 +98,9 @@ const Signupinfo = ({ d }) => {
         const url = `http://202.164.213.67/mat/s_leave_reg.php`;
         fetch(url, {
             method: "POST",
+
             headers: {
+
                 "content-type": "application/json"
             },
             body: JSON.stringify(addItem)

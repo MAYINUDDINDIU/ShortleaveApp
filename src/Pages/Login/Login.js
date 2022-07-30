@@ -6,11 +6,12 @@ import logo from '../../assets/filic.png'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../Firebase/firebase.init';
+import Home from '../Home/Home';
 
 const Login = ({ d }) => {
 
-    const { EMP_NAME, DEPT } = d;
-    console.log(EMP_NAME);
+    const { EMP_NAME, DEPT, EMP_CODE } = d;
+    console.log(EMP_NAME, EMP_CODE);
 
 
     const [udata, SetUdata] = useState([]);
@@ -38,7 +39,7 @@ const Login = ({ d }) => {
     // }
 
     if (user) {
-        navigate('/shortleaveform');
+        navigate(`/shortleaveform${EMP_CODE}`);
     }
 
     const handleSignIn = (event) => {
@@ -129,7 +130,11 @@ const Login = ({ d }) => {
 
 
         <div>
-            <div className='p-5  mt-10 shadow-2xl lg:w-96  lg:h-full  bordered  lg:p-8  '>
+
+
+
+
+            <div className='mt-3 '>
                 <form onSubmit={handleSignIn}>
 
                     <div className='mt-3  flex'>
@@ -146,7 +151,29 @@ const Login = ({ d }) => {
                     <p className='mt-3'>If you are not registered? <NavLink to={'/signup'}><span className='text-secondary font-bold'>Register now </span > </NavLink>  </p>
 
                     <div className='flex justify-center mt-4'>
-                        <button className='w-64  bg-[#087f23] btn btn-success text-white font-bold lg:w-80 px-12 rounded bold ml-1'>LOGIN</button>
+
+
+                        {/* <Link to={`shortleaveform=${EMP_CODE}`}>  <button className='w-64  bg-[#087f23] btn btn-success text-white font-bold lg:w-80 px-12 rounded bold ml-1'>LOGIN</button></Link> */}
+                        <button className='w-64  bg-[#087f23] btn btn-success text-white font-bold lg:w-80 px-12 rounded bold ml-1'>  LOGIN</button>
+
+                        {/* {
+                            !EMP_CODE ? <p>Loading...</p>
+                                : <Home message={EMP_CODE} />
+
+                        } */}
+
+                        {/* {
+                            EMP_CODE ?
+                                <>  <li className='text-white mt-3 mr-4'> </li>
+                                    <Home message={EMP_CODE} />
+                                </> :
+                                <button className='w-64  bg-[#087f23] btn btn-success text-white font-bold lg:w-80 px-12 rounded bold ml-1'>  LOGIN</button>
+
+                        } */}
+
+
+
+
                     </div>
                 </form>
             </div>

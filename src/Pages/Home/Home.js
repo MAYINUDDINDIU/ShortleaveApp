@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import img from '../../assets/emp.png'
 import imgg from '../../assets/agent_login.gif'
 import Info from './Info';
+import { useParams } from 'react-router-dom';
 const Home = () => {
+
+
+
+    // console.log(props.message);
+
+    const { id } = useParams();
+    console.log(id);
 
     const [empData, SetEmpData] = useState([]);
     // console.log(empData);
@@ -22,6 +30,7 @@ const Home = () => {
 
 
     return (
+
         <div>
             <h2 className='font-bold lg:text-2xl mt-5 text-secondary drop-shadow'>APPLICATION FOR <span className='text-primary lg:text-3xl'>SHORT LEAVE</span>  </h2>
             <div class="grid lg:grid-cols-2 gap-2 lg:px-20  mt-5 mb-5 place-content-center">
